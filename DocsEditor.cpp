@@ -122,7 +122,7 @@ int main() {
     editor->addNewLine();
     editor->addTabSpace();
     editor->addText("Indented text after a tab space.");
-    editor->addNewLine();
+    editor->addNewLine();  
     editor->addImage("picture.jpg");
 
     cout << "Rendered Document:\n" << editor->renderDocument() << endl;
