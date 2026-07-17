@@ -7,7 +7,7 @@ using namespace std;
 class INotification {
     public:
         virtual string getContent() = 0;
-        ~INotification() = default;
+        virtual ~INotification() = default;
 };
 
 class SimpleNotification : public INotification {
@@ -26,7 +26,7 @@ class SimpleNotification : public INotification {
 class IDecorator : public INotification {
     public:
         virtual string getContent() = 0;
-    ~IDecorator() = default;
+        virtual ~IDecorator() = default;
 };
 
 class BoldDecorator : public IDecorator {
@@ -89,9 +89,6 @@ class NotificationOberservable : public IObservable {
         }
 
         void setNotification(INotification* notification) {
-            if (this -> notification != nullptr) {
-                delete this -> notification;
-            }
             this -> notification = notification;
             notifyObservers();
         }
@@ -107,11 +104,7 @@ class NotificationOberservable : public IObservable {
             return "";
         }
 
-        ~NotificationOberservable() {
-            if (notification != nullptr) {
-                delete notification;
-            }
-        }
+        
 };
 
 //--------------------
